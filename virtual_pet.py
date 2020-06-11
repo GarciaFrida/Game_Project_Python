@@ -1,9 +1,11 @@
 
 class Pet():
-    def __init__(self, name, fullness=50, happiness=50, loneliness=50):
+    def __init__(self, name, fullness=50, happiness=50, hunger=5, mopiness=5, loneliness=50):
         self.name = name
         self.fullness = fullness
         self.happiness = happiness
+        self.hunger = hunger
+        self.mopiness = mopiness
         self.loneliness = loneliness
 
     def eat_food(self):
@@ -11,10 +13,14 @@ class Pet():
         
     def get_love(self):
         self.happiness += 30
+
+    def be_alive(self, hunger, mopiness):
+        self.fullness -= self.hunger
+        self.happiness -= self.mopiness
         
     def get_attention(self):
         self.loneliness -= 20
-        
+
     def pet_feed(pet):
         pet["fullness"] += 10
             
@@ -41,7 +47,8 @@ class Pet():
             elif choice == 2:
                 play_with_pet(puppy)
             else:
-                pass
+                pass           
+
 
 bobby = Pet("Bobby")
 print(bobby.name)
