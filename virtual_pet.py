@@ -7,6 +7,7 @@ class Pet():
         self.hunger = hunger
         self.mopiness = mopiness
         self.loneliness = loneliness
+        self.toys = []
 
     def eat_food(self):
         self.fullness += 30
@@ -25,7 +26,7 @@ class Pet():
         Happiness: %d
         """ % (self.name, self.fullness, self.happiness)
 
-    class CuddlyPet(Pet):
+class CuddlyPet(Pet):
     def __init__(self, name, fullness=50, happiness=50, hunger=5, mopiness=5):
         super().__init__(name,fullness, 100, hunger, 1)
         self.cuddle_level = cuddle_level
@@ -42,7 +43,9 @@ class Pet():
 
     def be_alive(self):
         self.fullness -= self.hunger
-        self.happiness -= self.mopiness/2
+        self.happiness -= self.mopiness
+        for toy in self.toys:
+            self.happiness += toy.use()
 
     def cuddle(self, other_pet):
         for i in range(self.cuddle_level):
