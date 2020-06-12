@@ -39,7 +39,7 @@ class Pet():
         """ % (self.name, self.fullness, self.happiness)
 
 class CuddlyPet(Pet):
-    def __init__(self, name, fullness=50, happiness=50, hunger=5, mopiness=5):
+    def __init__(self, name, fullness=50, happiness=50, hunger=5, mopiness=5, cuddle_level=1):
         super().__init__(name,fullness, 100, hunger, 1)
         self.cuddle_level = cuddle_level
         self.name = name
@@ -80,7 +80,7 @@ class CuddlyPet(Pet):
             %s's stats:
             Fullness: %d
             Happiness: %d
-            """ % (puppy["name"], puppy["fullness"], pupp["happiness"]))
+            """ % (puppy["name"], puppy["fullness"], puppy["happiness"]))
                  
             choice = int(input("""
             1. Feed puppy
