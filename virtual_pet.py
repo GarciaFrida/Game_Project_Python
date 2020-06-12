@@ -5,7 +5,6 @@ main_menu = [
     "Adopt a Pet",
     "Play with Pet",
     "Feed Pet",
-    "Hug Pet",
     "View status of pets",
     "Give a toy to all your pets",
     "Do nothing",
@@ -13,13 +12,13 @@ main_menu = [
 
 
 class Pet():
-    def __init__(self, name, fullness=50, happiness=50, hunger=5, mopiness=5, loneliness=50):
+    def __init__(self, name, fullness=50, happiness=50, hunger=5, mopiness=5):
         self.name = name
         self.fullness = fullness
         self.happiness = happiness
         self.hunger = hunger
         self.mopiness = mopiness
-        self.loneliness = loneliness
+        # self.loneliness = loneliness
         self.toys = []
 
     def eat_food(self):
@@ -64,8 +63,8 @@ class CuddlyPet(Pet):
         for i in range(self.cuddle_level):
             other_pet.get_love()    
         
-    def get_attention(self):
-        self.loneliness -= 20
+    # def get_attention(pet):
+    #     self.loneliness -= 20
 
     def pet_feed(pet):
         pet["fullness"] += 10
@@ -93,10 +92,7 @@ class CuddlyPet(Pet):
             elif choice == 2:
                 play_with_pet(puppy)
             else:
-                pass   
-
-
-
+                pass
 class Toy:
     def __init__(self, bonus=10, newness=10):
         self.bonus = 10
@@ -110,8 +106,6 @@ class Toy:
             return self.bonus
 
 
-
-
 def print_menu_error():
     print("That was not a valid choice. Try again. \n\n\n")
 
@@ -120,7 +114,7 @@ def choices_to_string(choice_list):
     num = 1
     for choice in choice_list:
         choice_string += "%d: %s\n" % (num, choice)
-        num +- 1
+        num += 1
     choice_string += "Please choose an option: "
     return choice_string
 
@@ -160,16 +154,16 @@ def main():
         if choice == 3:
             for pet in pets:
                 pet.eat_food()
-        if choice ==4:
+        # if choice ==4:
+        #     for pet in pets:
+        #         pet.get_attention()
+        if choice == 4:
             for pet in pets:
-                pet.get_attention()
+                print(pet)
         if choice == 5:
             for pet in pets:
                 pet.get_toy(Toy())
         if choice == 6:
-            for pet in pets:
-                print(pet)
-        if choice == 7:
             for pet in pets:
                 pet.be_alive()
 main()
@@ -178,9 +172,9 @@ main()
 
 
 
-bobby = Pet("Bobby")
-print(bobby.name)
-bobby.eat_food()
-print(bobby.fullness)
-print(bobby.happiness)
+# bobby = Pet("Bobby")
+# print(bobby.name)
+# bobby.eat_food()
+# print(bobby.fullness)
+# print(bobby.happiness)
 
