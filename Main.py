@@ -1,5 +1,5 @@
-from virtual_pet import Pet, CuddlyPet
-from toy import Toy
+from virtual_pet import Pet, CuddlyPet, Toy
+
 
 
 pets = []
