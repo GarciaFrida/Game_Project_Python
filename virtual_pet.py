@@ -1,14 +1,14 @@
 
-pets = []
+# pets = []
 
-main_menu = [
-    "Adopt a Pet",
-    "Play with Pet",
-    "Feed Pet",
-    "View status of pets",
-    "Give a toy to all your pets",
-    "Do nothing",
-]
+# main_menu = [
+#     "Adopt a Pet",
+#     "Play with Pet",
+#     "Feed Pet",
+#     "View status of pets",
+#     "Give a toy to all your pets",
+#     "Do nothing",
+# ]
 
 
 class Pet():
@@ -27,9 +27,11 @@ class Pet():
     def get_love(self):
         self.happiness += 30
 
-    def be_alive(self, hunger, mopiness):
+    def be_alive(self):
         self.fullness -= self.hunger
         self.happiness -= self.mopiness
+    def get_toy(self, toy):
+        self.toys.append(toy)
 
     def __str__(self):
         return """
@@ -104,6 +106,18 @@ class Toy:
         else:
             self.newness -= 1
             return self.bonus
+
+
+pets = []
+
+main_menu = [
+    "Adopt a Pet",
+    "Play with Pet",
+    "Feed Pet",
+    "View status of pets",
+    "Give a toy to all your pets",
+    "Do nothing",
+]
 
 
 def print_menu_error():
