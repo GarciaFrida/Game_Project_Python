@@ -83,7 +83,7 @@ class CuddlyPet(Pet):
             Fullness: %d
             Happiness: %d
             """ % (puppy["name"], puppy["fullness"], puppy["happiness"]))
-                 
+                
             choice = int(input("""
             1. Feed puppy
             2. Play with puppy
@@ -165,9 +165,14 @@ def main():
         if choice == 2:
             for pet in pets:
                 pet.get_love()
+                print(""" 
+                %s loves you right back""" % pet_name)
         if choice == 3:
             for pet in pets:
                 pet.eat_food()
+                print("""
+                %s is happy to be receiving food!"""
+                 % pet_name)
         # if choice ==4:
         #     for pet in pets:
         #         pet.get_attention()
@@ -177,6 +182,7 @@ def main():
         if choice == 5:
             for pet in pets:
                 pet.get_toy(Toy())
+                print(""" %s loves to play with you!""" % pet_name)
         if choice == 6:
             for pet in pets:
                 pet.be_alive()
