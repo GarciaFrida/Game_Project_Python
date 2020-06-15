@@ -136,6 +136,13 @@ def choices_to_string(choice_list):
         choice_string += "%d: %s\n" % (num, choice)
         num += 1
     choice_string += "Please choose an option: "
+    print("Welcome!")
+    print("""
+          __      _
+        o'')}____//
+        `_/      /
+        (_(_/-(_/
+        """)
     return choice_string
 
 def get_user_choice(choice_list):
