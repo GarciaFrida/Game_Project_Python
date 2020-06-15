@@ -136,13 +136,6 @@ def choices_to_string(choice_list):
         choice_string += "%d: %s\n" % (num, choice)
         num += 1
     choice_string += "Please choose an option: "
-    print("Welcome!")
-    print("""
-          __      _
-        o'')}____//
-        `_/      /
-        (_(_/-(_/
-        """)
     return choice_string
 
 def get_user_choice(choice_list):
@@ -184,6 +177,12 @@ def main():
                     print(""" 
                     %s loves you right back
                     """ % pet_name)
+                    print("""
+                      __      _
+                    o'')}____//
+                    `_/      /
+                    (_(_/-(_/
+                    """)
                 elif len(pets) > 1:
                     print("""
                     All your pets love you
@@ -211,6 +210,12 @@ def main():
                     print(""" 
                     %s loves to play with you!
                     """ % pet_name)
+                    print("""
+                      __      _
+                    o'')}____//
+                    `_/      /
+                    (_(_/-(_/
+                    """)
                 elif len(pets) > 1:
                     print("""
                     All your pets were so excited to play with you
