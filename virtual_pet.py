@@ -50,10 +50,15 @@ class CuddlyPet(Pet):
         self.hunger = hunger
         self.mopiness = 1
 
-    # class AggressivePet(Pet):
-    #     __init__(self, name, fullness=10, happiness=15, hunger=1, mopiness=2):
-    #     super().__init__(name,fullness, 20, hunger, 1)
-    #     self.aggression_level =
+class AggressivePet(Pet):
+    def __init__(self, name, fullness=10, happiness=15, hunger=1, mopiness=2, aggression_level=20):
+        super().__init__(name,fullness, 20, hunger, 1)
+        self.aggression_level = aggression_level
+        self.name = name
+        self.fullness = fullness
+        self.happiness = 100
+        self.hunger = hunger
+        self.mopiness = 1
 
     def be_alive(self):
         self.fullness -= self.hunger
@@ -65,8 +70,9 @@ class CuddlyPet(Pet):
         for i in range(self.cuddle_level):
             other_pet.get_love()    
         
-    # def get_attention(pet):
-    #     self.loneliness -= 20
+    def aggression(self, other_pet):
+        for i in range(self.aggression_level):
+            other_pet.get_love()
 
     def pet_feed(pet):
         pet["fullness"] += 10
@@ -115,7 +121,7 @@ main_menu = [
     "Play with Pet",
     "Feed Pet",
     "View status of pets",
-    "Give a toy to all your pets",
+    "Give a toy to your pets",
     "Do nothing",
 ]
 
@@ -146,8 +152,8 @@ def get_user_choice(choice_list):
 
 adoption_menu = [
     "Pet",
-    "Cuddly Pet"
-    # "Aggressive Pet"
+    "Cuddly Pet",
+    "Aggressive Pet"
 ]
 
 def main():
@@ -161,19 +167,31 @@ def main():
                 pets.append(Pet(pet_name))
             elif type_choice == 2:
                 pets.append(CuddlyPet(pet_name))
+            elif type_choice == 3:
+                pets.append(AggressivePet(pet_name))
             print("You now have %d pets" % len(pets))
         if choice == 2:
             for pet in pets:
                 pet.get_love()
-                print(""" 
-                %s loves you right back""" % pet_name)
+                if len(pets) == 1:
+                    print(""" 
+                    %s loves you right back
+                    """ % pet_name)
+                elif len(pets) > 1:
+                    print("""
+                    All your pets love you
+                    """)
         if choice == 3:
             for pet in pets:
                 pet.eat_food()
-                print("""
-                %s is happy to be receiving food!"""
-                 % pet_name)
-        # if choice ==4:
+                if len(pets) == 1:
+                    print("""
+                %s is happy to be receiving food!
+                """ % pet_name)
+                elif len(pets) > 1:
+                    print("""
+                    All the pets are happy to be receiving food!
+                    """)# if choice ==4:
         #     for pet in pets:
         #         pet.get_attention()
         if choice == 4:
@@ -182,7 +200,14 @@ def main():
         if choice == 5:
             for pet in pets:
                 pet.get_toy(Toy())
-                print(""" %s loves to play with you!""" % pet_name)
+                if len(pets) == 1:
+                    print(""" 
+                    %s loves to play with you!
+                    """ % pet_name)
+                elif len(pets) > 1:
+                    print("""
+                    All your pets were so excited to play with you
+                    """)
         if choice == 6:
             for pet in pets:
                 pet.be_alive()
